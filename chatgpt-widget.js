@@ -127,26 +127,13 @@
         document.getElementById("chatgpt-box").style.display = "none";
     });
 
-    // Função para abrir o ChatGPT com a mensagem digitada
+    // Redirecionar para o ChatGPT com a mensagem digitada
     document.getElementById("send-message").addEventListener("click", function() {
         var inputField = document.getElementById("chat-input");
         var messageText = inputField.value.trim();
         if (messageText !== "") {
-            var chatBody = document.getElementById("chat-body");
-
-            // Adicionar a mensagem do usuário na interface do chat
-            var userMessage = document.createElement("p");
-            userMessage.classList.add("chat-message");
-            userMessage.textContent = messageText;
-            chatBody.appendChild(userMessage);
-
-            // Abrir ChatGPT com a mensagem já preenchida
             var chatgptUrl = `https://chatgpt.com/g/g-67d81cb0a1c0819181895ffd04b29cee-ensino-medio-grupo-aprova-nexus?q=${encodeURIComponent(messageText)}`;
             window.open(chatgptUrl, "_blank");
-
-            // Limpar campo de entrada
-            inputField.value = "";
-            chatBody.scrollTop = chatBody.scrollHeight;
         }
     });
 
